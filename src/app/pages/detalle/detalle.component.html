@@ -1,1 +1,9 @@
 <p>detalle works!</p>
+
+    @if (peliculaSeleccionada == null) {
+        <p>No se encontró la película.</p>
+    } @else {
+        <h2>{{ peliculaSeleccionada.title }}</h2>
+        <p>{{ peliculaSeleccionada.overview }}</p>
+        <p>Duración: {{ peliculaSeleccionada.runtime }} minutos</p>
+    }

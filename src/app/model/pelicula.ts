@@ -15,3 +15,38 @@ export interface Pelicula{
     vote_average: number,
     vote_count: number
 }
+
+export interface ApiResponse{
+    page : number,
+    results: Pelicula[],
+    total_pages:number,
+    total_results:number
+}
+
+export interface Genero{
+    id: number,
+    name: string
+}
+
+export interface PeliculaDetalle{
+    adult: boolean;
+    backdrop_path: string | null;
+    budget: number;
+    genres: Genero[];
+    homepage: string;
+    id: number;
+    imdb_id: string;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string | null;
+    release_date: string;
+    runtime: number;
+    status: string;
+    tagline: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
+}
