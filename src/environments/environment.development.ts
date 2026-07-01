@@ -9,5 +9,6 @@ export const environment = {
 
     accessToken : 'jwt',
 
-
+    // URL del JSON Server Local para favoritos
+    apiFavoritosUrl: 'http://localhost:3000'
 };
