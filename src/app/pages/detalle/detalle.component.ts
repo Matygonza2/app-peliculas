@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DetalleService } from '../../services/detalle.service';
 import { Pelicula, PeliculaDetalle } from '../../model/pelicula';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-detalle',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
@@ -26,7 +26,7 @@ export class DetalleComponent implements OnInit {
   }
 
 
-obtenerPeliculaPorID(id: number) {
+  obtenerPeliculaPorID(id: number) {
     this._detalleService.ObtenerPeliculaPorIDService(id).subscribe({
       next: (data: PeliculaDetalle) => {
         this.peliculaSeleccionada = data;
