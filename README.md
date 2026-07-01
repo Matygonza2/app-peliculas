@@ -1,59 +1,68 @@
-# AppPeliculas
+# TP Integrador: App de Películas 🎬
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.26.
+Este es el proyecto integrador desarrollado para la materia **Desarrollo de Sistemas Web (Frontend)** del **IFTS 24**. Consiste en una aplicación SPA (Single Page Application) que consume la API de **TMDB (The Movie Database)** para mostrar un catálogo de películas y sus detalles.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologías y Herramientas
 
-```bash
-ng serve
-```
+- **Angular 19** (Componentes Standalone, Rutas dinámicas y HttpClient)
+- **Bootstrap 5** (Diseño responsive y componentes de interfaz)
+- **RxJS** (Manejo de flujos asíncronos para consumo de APIs)
+- **NodeJS Scripting** (Generación segura de variables de entorno a través de `.env`)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Configuración e Instalación
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para poder correr este proyecto de forma local, necesitás seguir estos pasos para configurar tus credenciales de la API de TMDB.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. Clonar el repositorio e instalar dependencias
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
+### 2. Configurar variables de entorno
 
-To build the project run:
+Creá un archivo `.env` en la raíz del proyecto (basado en tus credenciales de TMDB) con el siguiente formato:
+
+```env
+BASE_URL=https://api.themoviedb.org/3
+BASE_ID_URL=https://api.themoviedb.org/3/movie
+API_KEY=tu_api_key_aqui
+ACCESS_TOKEN=tu_access_token_bearer_aqui
+```
+
+### 3. Generar la configuración de environments de Angular
+
+Dado que Angular no maneja de forma nativa variables de entorno `.env` en el cliente, el proyecto cuenta con un script que lee el archivo `.env` y genera dinámicamente los archivos de configuración en `src/environments/`.
+
+Ejecutá el siguiente comando para generarlos:
 
 ```bash
-ng build
+npm run load-env
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+*Nota: Este comando creará `environment.ts` y `environment.development.ts` dentro de `src/environments/` automáticamente.*
 
-## Running unit tests
+### 4. Iniciar el servidor de desarrollo
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Una vez generadas las variables de entorno, podés levantar el servidor local:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+Abrí tu navegador en [http://localhost:4200](http://localhost:4200) para ver la aplicación en funcionamiento.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 📂 Estructura Principal del Código
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+El proyecto está organizado de la siguiente manera:
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `src/app/pages/`: Contiene las páginas principales de la aplicación (como `detalle`, encargada de mostrar la ficha técnica de una película mediante rutas dinámicas).
+- `src/app/services/`: Contiene los servicios de Angular (ej. `detalle.service.ts`) encargados de encapsular las peticiones HTTP hacia la API de TMDB.
+- `src/app/model/`: Definición de interfaces TypeScript para el tipado seguro de las respuestas de la API.
+- `scripts/loadEnv.js`: Script de soporte en Node.js para inyectar credenciales del `.env` al flujo de compilación de Angular.
