@@ -1,9 +1,30 @@
-.detalle-modal { padding: 1rem; }
+.detalle-modal {
+  padding: 1rem;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.95));
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.95));
   pointer-events: none;
 }
-.bg-image { position: relative; }
-.card { background-color: rgba(11,18,28,0.95); }
+
+.bg-image {
+  position: relative;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-container {
+  max-width: 920px;
+  margin: 2rem auto
+}
+
+.card {
+  background-color: rgba(11, 18, 28, 0.95);
+}
+
+.poster-img {
+  width: 120px;
+}

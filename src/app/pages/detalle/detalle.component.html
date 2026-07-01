@@ -1,8 +1,8 @@
   @if (peliculaSeleccionada == null) {
         
       <section class="detalle-modal" >
-        <div class="position-relative rounded-top-3 overflow-hidden" style="max-width:920px; margin:2rem auto;"> 
-          <div class="bg-image" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqZENvQziVzEwCjFdAxzuFezhT996DKipAmbUixAnJw&s=10'); height:260px;    background-size:cover; background-position:center;">
+        <div class="position-relative rounded-top-3 overflow-hidden modal-container">  
+          <div class="bg-image" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqZENvQziVzEwCjFdAxzuFezhT996DKipAmbUixAnJw&s=10');">
            <div class="hero-overlay"></div>
             <button class="btn btn-dark position-absolute top-0 end-0 m-3 rounded-circle">✕</button>
           </div>
@@ -12,7 +12,7 @@
             <div class="row g-0 align-items-center">
 
               <div class="col-auto p-4">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqZENvQziVzEwCjFdAxzuFezhT996DKipAmbUixAnJw&s=10" class="img-fluid rounded" style="width:120px;" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqZENvQziVzEwCjFdAxzuFezhT996DKipAmbUixAnJw&s=10" class="img-fluid rounded poster-img" alt="">
               </div>
               <div class="col">
                 <div class="card-body">
@@ -35,7 +35,7 @@
     } @else{
 
       <section class="detalle-modal" >
-        <div class="position-relative rounded-top-3 overflow-hidden" style="max-width:920px; margin:2rem auto;">
+        <div class="position-relative rounded-top-3 overflow-hidden modal-container" >
           <div class="bg-image" style="background-image:url('https://image.tmdb.org/t/p/original/{{ peliculaSeleccionada.backdrop_path }}'); height:260px;    background-size:cover; background-position:center;">
             <div class="hero-overlay"></div>
             <button class="btn btn-dark position-absolute top-0 end-0 m-3 rounded-circle" routerLink="">✕</button>
@@ -45,7 +45,7 @@
 
             <div class="row g-0 align-items-center">
               <div class="col-auto p-4">
-                <img src="https://image.tmdb.org/t/p/w300/{{ peliculaSeleccionada.poster_path }}" class="img-fluid rounded" style="width:120px;" alt="{{ peliculaSeleccionada.title }}">
+                <img src="https://image.tmdb.org/t/p/w300/{{ peliculaSeleccionada.poster_path }}" class="img-fluid rounded poster-img" alt="{{ peliculaSeleccionada.title }}">
               </div>
 
 
