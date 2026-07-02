@@ -2,6 +2,12 @@
 
 Este es el proyecto integrador desarrollado para la materia **Desarrollo de Sistemas Web (Frontend)** del **IFTS 24**. Consiste en una aplicación SPA (Single Page Application) que consume la API de **TMDB (The Movie Database)** para mostrar un catálogo de películas y sus detalles.
 
+### 👥 Grupo 5 - Integrantes
+- **Borgarelli, Yael Tatiana**
+- **Gonzalez, Matias Ezequiel**
+- **Iriarte, Elías**
+- **Vera Masape, Rogger Louis**
+
 ---
 
 ## 🚀 Tecnologías y Herramientas
@@ -62,7 +68,18 @@ Abrí tu navegador en [http://localhost:4200](http://localhost:4200) para ver la
 
 El proyecto está organizado de la siguiente manera:
 
-- `src/app/pages/`: Contiene las páginas principales de la aplicación (como `detalle`, encargada de mostrar la ficha técnica de una película mediante rutas dinámicas).
-- `src/app/services/`: Contiene los servicios de Angular (ej. `detalle.service.ts`) encargados de encapsular las peticiones HTTP hacia la API de TMDB.
-- `src/app/model/`: Definición de interfaces TypeScript para el tipado seguro de las respuestas de la API.
+- `src/app/core/`: Contiene la lógica central y global de la aplicación, como modelos generales (`core/models/movie.model.ts`) y servicios compartidos (`core/services/movie.service.ts`).
+- `src/app/features/`: Contiene los componentes estructurados por funcionalidad de la aplicación (como el componente `home` para la página de inicio).
+- `src/app/pages/`: Contiene páginas específicas (como `detalle`, encargada de mostrar la ficha técnica de una película mediante rutas dinámicas).
+- `src/app/services/`: Contiene servicios adicionales de Angular (ej. `detalle.service.ts`) encargados de encapsular peticiones HTTP.
+- `src/app/model/`: Definición de interfaces TypeScript para el tipado seguro heredado o complementario (ej. `pelicula.ts`).
 - `scripts/loadEnv.js`: Script de soporte en Node.js para inyectar credenciales del `.env` al flujo de compilación de Angular.
+
+
+---
+
+## 🧪 Pruebas (Testing)
+
+La documentación de testing, incluyendo casos de prueba y reportes, está disponible en el siguiente enlace:
+- [Documentación de Testing en Google Drive](https://drive.google.com/drive/folders/1jkEQ6zTi3ic9NnujkDWBTLYsMkFcJqe9?usp=sharing)
+
