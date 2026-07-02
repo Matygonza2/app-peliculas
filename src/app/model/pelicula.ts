@@ -28,6 +28,10 @@ export interface Genero{
     name: string
 }
 
+export interface GenreListResponse {
+  genres: Genero[];
+}
+
 export interface PeliculaDetalle{
     adult: boolean;
     backdrop_path: string;
