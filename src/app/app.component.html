@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/" routerLinkActive="active">Inicio</a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Buscar</a>
+          <a class="nav-link" routerLink="/buscar" routerLinkActive="active">Buscar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/mi-lista">Mi Lista</a>
+          <a class="nav-link" routerLink="/mi-lista" routerLinkActive="active">Mi Lista</a>
         </li>
       </ul>
     </div>

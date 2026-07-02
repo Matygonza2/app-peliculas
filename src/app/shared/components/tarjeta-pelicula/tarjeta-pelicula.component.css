@@ -1,0 +1,41 @@
+.card {
+  transition: transform 0.2s;
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+  background-color: #2a2a2a;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text {
+  font-size: 0.85rem;
+}
+
+.card-img-top::before {
+  content: "Sin imagen";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+  color: #888;
+  font-size: 0.9rem;
+  height: 100%;
+}

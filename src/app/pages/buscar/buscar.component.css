@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  background-color: #141414;
+  min-height: 100vh;
+}
+
+/* Botón de género activo (estilo similar al home) */
+.btn-secondary {
+  background-color: #f5c518 !important;
+  border-color: #f5c518 !important;
+  color: #14171f !important;
+}
+
+.btn-outline-secondary {
+  color: #9ca3af !important;
+  border-color: #2b2f3a !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #2b2f3a !important;
+  color: #fff !important;
+}
