@@ -1,0 +1,60 @@
+{
+  "favoritos": [
+    {
+      "movieId": 1273221,
+      "title": "Scary Movie",
+      "poster_path": "/qhGf7btEU9hcGz3A0lneNptJKL7.jpg",
+      "release_date": "2026-06-03",
+      "vote_average": 5.5,
+      "id": "hESxDbZACqY"
+    },
+    {
+      "movieId": 1301421,
+      "title": "The Sheep Detectives",
+      "poster_path": "/6QtL9rl3Zb4d8qW6EJ4qO5hSSfU.jpg",
+      "release_date": "2026-04-30",
+      "vote_average": 7.746,
+      "id": "L2kvSJAR66w"
+    },
+    {
+      "movieId": 1413976,
+      "title": "Citizen Vigilante",
+      "poster_path": "/6LmJD3Wohe0g4U62wgi7RyJqfE4.jpg",
+      "release_date": "2026-06-19",
+      "vote_average": 6.723,
+      "id": "oRfoweDEL5I"
+    },
+    {
+      "movieId": 1632181,
+      "title": "Accidental Partners",
+      "poster_path": "/sr1Yoj6XLPTWYcbDoBy67xivW4I.jpg",
+      "release_date": "2026-03-12",
+      "vote_average": 9.035,
+      "id": "78pd9EThc98"
+    },
+    {
+      "movieId": 1275779,
+      "title": "El día de la revelación",
+      "poster_path": "/uGww4UrU3316Mld4p30dgdM09Du.jpg",
+      "release_date": "2026-06-10",
+      "vote_average": 6.686,
+      "id": "KXgyc3DDxu0"
+    },
+    {
+      "movieId": 11012,
+      "title": "Damage",
+      "poster_path": "/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
+      "release_date": "1992-12-02",
+      "vote_average": 6.586,
+      "id": "rzwIHwrODP8"
+    },
+    {
+      "movieId": 1084244,
+      "title": "Toy Story 5",
+      "poster_path": "/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+      "release_date": "2026-06-17",
+      "vote_average": 7.435,
+      "id": "qT_ET0FB2DE"
+    }
+  ]
+}

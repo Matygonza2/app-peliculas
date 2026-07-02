@@ -1,0 +1,18 @@
+<div class="tarjeta-favorito">
+
+    <div class="imagen">
+        <img [src]="imagenUrl" [alt]="favorito.title" loading="lazy" />
+    </div>
+
+    <div class="info">
+        <h5 class="titulo">{{ favorito.title }}</h5>
+        <span class="año">{{ anio }}</span>
+        <div class="votos">
+            ⭐ {{ favorito.vote_average }}
+        </div>
+    </div>
+    
+    <button class="btn-eliminar" (click)="onEliminar()" aria-label="Eliminar de mi lista">
+        Eliminar
+    </button>
+</div>

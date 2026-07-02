@@ -30,7 +30,7 @@ export interface Genero{
 
 export interface PeliculaDetalle{
     adult: boolean;
-    backdrop_path: string | null;
+    backdrop_path: string;
     budget: number;
     genres: Genero[];
     homepage: string;
@@ -40,7 +40,7 @@ export interface PeliculaDetalle{
     original_title: string;
     overview: string;
     popularity: number;
-    poster_path: string | null;
+    poster_path: string;
     release_date: string;
     runtime: number;
     status: string;
