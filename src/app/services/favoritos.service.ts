@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Favorito } from '../model/favorito';
 import { Pelicula } from '../model/pelicula';
 
@@ -11,7 +11,21 @@ import { Pelicula } from '../model/pelicula';
 export class FavoritosService {
     private readonly apiUrl = environment.apiFavoritosUrl;
 
-    constructor(private http: HttpClient) { }
+    private mapaFavoritos = new BehaviorSubject<Map<number, number>>(new Map());
+
+    constructor(private http: HttpClient) {
+        this.cargarMapaFavoritos();
+    }
+
+    private cargarMapaFavoritos(): void {
+        this.http.get<Favorito[]>(`${this.apiUrl}/favoritos`).subscribe({
+            next: (favoritos) => {
+                const mapa = new Map(favoritos.map(f => [f.movieId, f.id]));
+                this.mapaFavoritos.next(mapa);
+            },
+            error: (err) => console.error('Error al cargar favoritos:', err)
+        });
+    }
 
     /**
      * Obtiene la lista completa de favoritos desde el JSON Server.
@@ -21,10 +35,13 @@ export class FavoritosService {
     }
 
     /**
-     * Agrega una pelicula a la lista de favoritos.
-     * @param pelicula Objeto Pelicula de la api TMBD
-     * @returns Observable con la respuesta
+     * Verifica si una pelicula (por movieId de TMDB)
+     * ya esta en favoritos.
      */
+    esFavorito(movieId: number): Observable<boolean> {
+        return this.mapaFavoritos.pipe(map(mapa => mapa.has(movieId)));
+    }
+
     agregarFavorito(pelicula: Pelicula): Observable<Favorito> {
         const body = {
             movieId: pelicula.id,
@@ -35,15 +52,44 @@ export class FavoritosService {
                 : pelicula.release_date,
             vote_average: pelicula.vote_average
         };
-        return this.http.post<Favorito>(`${this.apiUrl}/favoritos`, body);
+        return this.http.post<Favorito>(`${this.apiUrl}/favoritos`, body).pipe(
+            tap((favoritoCreado) => {
+                const mapa = new Map(this.mapaFavoritos.value);
+                mapa.set(favoritoCreado.movieId, favoritoCreado.id);
+                this.mapaFavoritos.next(mapa);
+            })
+        );
     }
 
     /**
-     * Elimina un favorito por su id de JSON Server.
-     * @param id Identificador del favorito en JSON Server
+     * Elimina un favorito por su id interno de json-server.
      */
     eliminarFavorito(id: number): Observable<void> {
-        return this.http.delete<void>(`${this.apiUrl}/favoritos/${id}`);
+        return this.http.delete<void>(`${this.apiUrl}/favoritos/${id}`).pipe(
+            tap(() => {
+                // Actualizamos el mapa buscando que movieId tenia este id
+                const mapa = new Map(this.mapaFavoritos.value);
+                for (const [movieId, favoritoId] of mapa.entries()) {
+                    if (favoritoId === id) {
+                        mapa.delete(movieId);
+                        break;
+                    }
+                }
+                this.mapaFavoritos.next(mapa);
+            })
+        );
+    }
+
+    /**
+     * Elimina un favorito a partir del movieId de TMDB.
+     */
+    eliminarFavoritoPorMovieId(movieId: number): Observable<void> {
+        const idInterno = this.mapaFavoritos.value.get(movieId);
+        if (idInterno === undefined) {
+            console.warn('Intentando eliminar una pelicula que no esta en favoritos');
+            return new Observable<void>(subscriber => subscriber.complete());
+        }
+        return this.eliminarFavorito(idInterno);
     }
 
     /**
