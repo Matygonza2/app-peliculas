@@ -28,3 +28,15 @@
 .poster-img {
   width: 120px;
 }
+
+.btn-en-lista {
+  background-color: #3a2a1a;
+  border: 1px solid #f2c14e;
+  color: #f2c14e;
+  font-weight: 600;
+}
+
+.btn-en-lista:hover {
+  background-color: #4a3620;
+  color: #ffdd80;
+}

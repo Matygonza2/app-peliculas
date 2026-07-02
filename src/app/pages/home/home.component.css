@@ -1,0 +1,17 @@
+.seccion-peliculas {
+  background-color: #141414;
+}
+
+.seccion-peliculas h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.seccion-peliculas a {
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.seccion-peliculas a:hover {
+  color: #fff !important;
+}

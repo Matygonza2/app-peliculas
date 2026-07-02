@@ -20,7 +20,7 @@ export class DetalleService {
 
   public ObtenerPeliculasService(): Observable<ApiResponse> {
     return this._httpClient.get<ApiResponse>(
-      `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=en-US&page=1`
+      `${this.baseUrl}/movie/popular?api_key=${this.apiKey}&language=es-ES&page=1`
     );
   }
 
@@ -30,7 +30,7 @@ export class DetalleService {
       'Content-Type': 'application/json'
     });
     return this._httpClient.get<PeliculaDetalle>(
-      `${this.baseIdUrl}/${id}&language=en-US`,
+      `${this.baseIdUrl}/${id}?language=es-ES`,
       {headers}
     );
 

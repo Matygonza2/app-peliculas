@@ -1,0 +1,30 @@
+<div class="container-fluid mi-lista-container">
+    <div class="row align-items-center mb-4">
+        <div class="col">
+            <h1 class="text-white display-6 fw-bold">Mi Lista</h1>
+        </div>
+        <div class="col-auto">
+            <span class="text-secondary contador">
+                {{ (favoritos | async)?.length || 0 }} peliculas
+            </span>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <ng-container *ngIf="favoritos | async as favoritos">
+            <div
+                class="col-12 col-sm-6 col-md-4 col-lg-3"
+                *ngFor="let favorito of favoritos; trackBy: trackPorId"
+            >
+                <app-tarjeta-favorito
+                    [favorito]="favorito"
+                    (eliminar)="eliminarFavorito($event)"
+                ></app-tarjeta-favorito>
+            </div>
+
+            <div *ngIf="favoritos.length === 0" class="col-12 text-center text-secondary py-5">
+                <p class="fs-5">Todavia no has agregado peliculas a tu lista.</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

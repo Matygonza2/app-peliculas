@@ -1,0 +1,46 @@
+<div class="container py-4">
+  <div class="row align-items-center mb-4">
+    <div class="col-md-6">
+      <h2 class="text-white mb-0">Explorar películas</h2>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" class="form-control bg-dark text-white border-secondary" placeholder="Buscar por título..."
+          [(ngModel)]="query" (keyup.enter)="onSearch()" />
+        <button class="btn btn-warning" (click)="onSearch()">Buscar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-wrap gap-2 mb-4">
+    <button class="btn btn-sm" [class.btn-secondary]="selectedGenreId === null"
+      [class.btn-outline-secondary]="selectedGenreId !== null" (click)="selectGenre(null)">
+      Todas
+    </button>
+    <button *ngFor="let genre of genres" class="btn btn-sm" [class.btn-secondary]="selectedGenreId === genre.id"
+      [class.btn-outline-secondary]="selectedGenreId !== genre.id" (click)="selectGenre(genre.id)">
+      {{ genre.name }}
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="text-center text-secondary py-5">Cargando películas...</div>
+  <div *ngIf="errorMessage" class="text-center text-danger py-5">{{ errorMessage }}</div>
+
+  <div *ngIf="!loading && !errorMessage" class="row g-3">
+    <div *ngFor="let pelicula of movies" class="col-6 col-md-4 col-lg-3 col-xl-2">
+      <!-- Pasamos pelicula al componente tarjeta -->
+      <app-tarjeta-pelicula [pelicula]="pelicula"></app-tarjeta-pelicula>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !errorMessage && movies.length > 0"
+    class="d-flex justify-content-center align-items-center gap-3 mt-4 text-secondary">
+    <button class="btn btn-outline-secondary btn-sm" (click)="previousPage()" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button class="btn btn-outline-secondary btn-sm" (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Siguiente
+    </button>
+  </div>
+</div>

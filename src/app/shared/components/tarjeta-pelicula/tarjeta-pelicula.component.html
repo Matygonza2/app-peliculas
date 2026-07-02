@@ -1,0 +1,14 @@
+<div class="card h-100 bg-dark text-white border-0 shadow-sm">
+  <a [routerLink]="['/detalle', pelicula.id]" class="text-decoration-none">
+    <img
+      [src]="obtenerPoster()"
+      class="card-img-top"
+      [alt]="pelicula.title"
+      loading="lazy"
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title text-white">{{ pelicula.title }}</h5>
+      <p class="card-text text-secondary">{{ obtenerAnio() }}</p>
+    </div>
+  </a>
+</div>

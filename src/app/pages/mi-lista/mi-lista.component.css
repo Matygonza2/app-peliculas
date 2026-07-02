@@ -1,0 +1,13 @@
+body {
+  background-color: #141414;
+}
+.mi-lista-container {
+  background-color: #141414;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+}
+
+.mi-lista-container .contador {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
