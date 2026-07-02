@@ -1,0 +1,48 @@
+<div class="container-fluid p-0">
+  <!-- Carrusel de destacados -->
+  <ng-container *ngIf="peliculasPopulares$ | async as populares">
+    <app-carrusel
+      [peliculas]="populares.slice(0, 5)"
+    ></app-carrusel>
+  </ng-container>
+
+  <!-- Seccion "Mas populares" -->
+  <section class="seccion-peliculas py-4">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-white mb-0">Mas populares</h2>
+        <a class="text-secondary" routerLink="/buscar">Ver todos →</a>
+      </div>
+      <div class="row g-3">
+        <ng-container *ngIf="peliculasPopulares$ | async as populares">
+          <div
+            class="col-12 col-md-6 col-lg-4 col-xl-3"
+            *ngFor="let pelicula of populares.slice(5, 11); trackBy: trackPorId"
+          >
+            <app-tarjeta-pelicula [pelicula]="pelicula"></app-tarjeta-pelicula>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion "Mas votadas" -->
+  <section class="seccion-peliculas py-4 bg-dark bg-opacity-25">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-white mb-0">Mas votadas</h2>
+        <a class="text-secondary" routerLink="/buscar">Ver todos →</a>
+      </div>
+      <div class="row g-3">
+        <ng-container *ngIf="peliculasMasVotadas$ | async as masVotadas">
+          <div
+            class="col-12 col-md-6 col-lg-4 col-xl-3"
+            *ngFor="let pelicula of masVotadas.slice(0, 6); trackBy: trackPorId"
+          >
+            <app-tarjeta-pelicula [pelicula]="pelicula"></app-tarjeta-pelicula>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</div>
