@@ -7,5 +7,5 @@ export const environment = {
     apiUrl: 'https://api.themoviedb.org/3',
     imageUrl: 'https://image.tmdb.org/t/p',    
     // URL del JSON Server para favoritos
-    apiFavoritosUrl: 'http://localhost:3000'
+    apiFavoritosUrl: 'https://app-peliculas-1-i0iy.onrender.com'
 };
